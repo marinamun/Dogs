@@ -25,6 +25,12 @@ const Dogs = () => {
     };
     fetchData();
   }, []);
+
+  const deleteDog = (dogId) => {
+    const filteredDogs = allDogs.filter((dog) => dog.id !== dogId);
+    setAllDogs(filteredDogs);
+  };
+
   return (
     <>
       <h1>All dogssss</h1>
@@ -34,6 +40,7 @@ const Dogs = () => {
             <Link to={`/dogs/${eachDog.id}`} props={{ dogId: eachDog.id }}>
               <h4>{eachDog.name}</h4>
             </Link>
+            <button onClick={() => deleteDog(eachDog.id)}>X</button>
           </li>
         ))}
       </ul>
