@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const EachDog = () => {
@@ -28,7 +28,8 @@ const EachDog = () => {
   return (
     <>
       <h3>Temperament of your dog:</h3>
-      <h4>{dog.temperament}</h4>
+      <p>{dog.temperament}</p>
+      <Link to={`/updateDog/${dog.id}`}>Edit</Link>
     </>
   );
 };
